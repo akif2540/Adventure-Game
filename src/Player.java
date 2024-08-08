@@ -7,9 +7,11 @@ public class Player {
    private String charName;
    private String name;
    Scanner input = new Scanner(System.in);
+   private Inventory inventory;
 
    public Player(String name){
        this.name = name;
+       this.inventory = new Inventory();
    }
 
    public void selectChar(){
@@ -47,10 +49,11 @@ public class Player {
            default:
                initPlayer(new Samurai());
        }
-       System.out.println("Karekter : " + this.getCharName() +
-               " Hasar : " + this.getDamage() +
-               " Sağlık : " + this.getHealth() +
-               " Para :" + this.getMoney());
+       System.out.println("Karekter : " + this.getCharName());
+   }
+
+   public void selectLoc(){
+
    }
 
    public void initPlayer(GameChar gameChar){
@@ -60,8 +63,16 @@ public class Player {
        this.setCharName(gameChar.getName());
    }
 
+   public void printInfo(){
+       System.out.println(
+               "Silahınız : " + this.getInventory().getWeapon().getName() +
+               " , Hasarınız : " + this.getDamage() +
+               " , Sağlığını : " + this.getHealth() +
+               " , Paranız :" + this.getMoney());
+   }
+
     public int getDamage() {
-        return damage;
+        return damage + this.getInventory().getWeapon().getDamge();
     }
 
     public void setDamage(int damage) {
@@ -98,5 +109,13 @@ public class Player {
 
     public void setCharName(String charName) {
         this.charName = charName;
+    }
+
+    public Inventory getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(Inventory inventory) {
+        this.inventory = inventory;
     }
 }
