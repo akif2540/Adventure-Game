@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Player {
    private int damage;
    private int health;
+   private int originalHeath;
    private int money;
    private String charName;
    private String name;
@@ -23,7 +24,7 @@ public class Player {
        GameChar[] charList = {new Samurai(), new Archer(),new Knight()}; // polimorfizm
 
        System.out.println("Karekterler");
-       System.out.println("----------------------------------------");
+       System.out.println("-----------------------------------------------------------------------------------");
        for (GameChar gameChar : charList){
            System.out.println(
                    "ID: " +gameChar.getId()+
@@ -33,7 +34,7 @@ public class Player {
                            "\t Para: " + gameChar.getMoney()
            );
        }
-       System.out.println("----------------------------------------");
+       System.out.println("-----------------------------------------------------------------------------------");
        System.out.print("Karekterinizi Seçiniz : ");
        int selectChar = input.nextInt();
        switch (selectChar){
@@ -59,6 +60,7 @@ public class Player {
    public void initPlayer(GameChar gameChar){
        this.setDamage(gameChar.getDamage());
        this.setHealth(gameChar.getHealth());
+       this.setOriginalHeath(gameChar.getHealth());
        this.setMoney(gameChar.getMoney());
        this.setCharName(gameChar.getName());
    }
@@ -127,5 +129,13 @@ public class Player {
 
     public Weapon getWeapon(){
        return this.getInventory().getWeapon();
+    }
+
+    public int getOriginalHeath() {
+        return originalHeath;
+    }
+
+    public void setOriginalHeath(int originalHeath) {
+        this.originalHeath = originalHeath;
     }
 }

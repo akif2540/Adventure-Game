@@ -10,8 +10,9 @@ public class Game {
 
         Player player = new Player("akif");
         System.out.println("Sayın " + player.getName() + " Bu karanlık Ada da dikkatli ol bol Şanslar :)");
-        System.out.println("Karekterinizi Seçiniz..");
+        System.out.println("-----------------------------------------------------------------------------------");
         player.selectChar();
+
         Location location = null;
         while (true) {
             player.printInfo();
@@ -26,7 +27,6 @@ public class Game {
             System.out.println("0 - Çıkış Yap  , Oyunu Sonlandır..");
             System.out.println();
             System.out.print("Gitmek istediğiniz Bölgeyi Seçiniz: ");
-
 
             int selectLoc = input.nextInt();
 
